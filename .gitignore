@@ -4,6 +4,11 @@
 /node_modules
 /.pnp
 .pnp.js
+.gradle
+.idea/
+!.idea/icon*.png
+*.iml
+build/
 
 # testing
 /coverage
