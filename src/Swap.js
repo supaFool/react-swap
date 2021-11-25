@@ -1,9 +1,10 @@
 import ProfileBox from "./ProfileBox";
-function Swap(){
-    return(
-      <div>
-        <ProfileBox/>
-      </div>
+
+function Swap() {
+    return (
+        <div>
+            <ProfileBox/>
+        </div>
     );
 }
 

@@ -12,7 +12,7 @@ function Header() {
 
     return (
         <div className={'header'}>
-            <h2>{data.title}   TEST<sub>{data.version}</sub></h2>
+            <h2>{data.title} TEST<sub>{data.version}</sub></h2>
         </div>
     );
 }

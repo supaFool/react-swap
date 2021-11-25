@@ -14,19 +14,19 @@
     color: black;
 }
 
-.bnb-balance-container{
+.bnb-balance-container {
     display: inline;
 }
 
-.bnb-balance-amount{
+.bnb-balance-amount {
     color: cyan;
 }
 
-.bnb-balance-label{
+.bnb-balance-label {
     color: black;
 }
 
-.session-id{
+.session-id {
     background-color: orange;
     width: 100%;
 }

@@ -1,4 +1,4 @@
-import Moralis  from 'moralis';
+import Moralis from 'moralis';
 import User from './User';
 
 const serverUrl = "https://klpxwezyuiua.usemoralis.com:2053/server"; //Serve>
@@ -10,13 +10,11 @@ function Web3() {
     //Called when site is loading.
 
 
-
-
     Moralis.start({serverUrl, appId}).then();
 
-        Moralis.enableWeb3().then();
-                User.entity = Moralis.User.current;
-                    User.entity = Moralis.authenticate();
+    Moralis.enableWeb3().then();
+    User.entity = Moralis.User.current;
+    User.entity = Moralis.authenticate();
 
 
     return (

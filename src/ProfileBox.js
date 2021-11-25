@@ -17,7 +17,7 @@ export default function ProfileBox() {
             authenticate().then(() => {
                 setText("Logout");
             }).then(async () => {
-                let options = {chain:'bsc'};
+                let options = {chain: 'bsc'};
                 setTestText((await bal.account.getNativeBalance(options)).balance /
                     10 ** 18);
             });
@@ -33,18 +33,22 @@ export default function ProfileBox() {
 
     // Logged in
     if (isAuthenticated) {
+        //TODO: When I add test_text.toFixed(6) to set 6 spot decimals.
+        // It gets error on login. ref to className='bnb-balance-amount'>{test_text.toFixed(6)}</div></p>
+
         return (
 
             <div className='profile-container'>
-                <p>Welcome, <b>{user.getUsername()}</b> </p>
+                <p>Welcome, <b>{user.getUsername()}</b></p>
 
                 <div>
-                <button onClick={connect}>Logout</button>
-                <button>Menu</button>
+                    <button onClick={connect}>Logout</button>
+                    <button>Menu</button>
                 </div>
                 <hr/>
                 <div className='bnb-balance-container'>
-                    <p className='bnb-balance-label'>BnB Balance: <div className='bnb-balance-amount'>{test_text.toFixed(6)}</div></p>
+                    <p className='bnb-balance-label'>BnB Balance: <div
+                        className='bnb-balance-amount'>{test_text}</div></p>
                 </div>
                 <hr/>
             </div>
