@@ -1,0 +1,45 @@
+.profile-container {
+    background-color: dimgray;
+    border-color: grey;
+    border-style: solid;
+    border-width: 1px;
+    block-size: auto;
+    border-radius: 10px;
+    padding: 5px;
+    float: left;
+    margin: auto;
+}
+
+.token-name {
+    color: black;
+}
+
+.bnb-balance-container{
+    display: inline;
+}
+
+.bnb-balance-amount{
+    color: cyan;
+}
+
+.bnb-balance-label{
+    color: black;
+}
+
+.session-id{
+    background-color: orange;
+    width: 100%;
+}
+
+body {
+    background-color: darkgrey;
+}
+
+p {
+    color: #61dafb;
+    font-size: small;
+}
+
+b {
+    color: darkorange;
+}
