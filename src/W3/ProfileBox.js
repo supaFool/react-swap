@@ -1,7 +1,7 @@
 import {useState} from "react";
 import {useMoralis, useMoralisWeb3Api} from "react-moralis";
 
-import './style/profilebox.css'
+import '../style/profilebox.css'
 
 export default function ProfileBox() {
 
