@@ -1,0 +1,11 @@
+.swap-container {
+    background-color: darkorange;
+    border-color: grey;
+    border-style: solid;
+    border-width: 1px;
+    block-size: auto;
+    border-radius: 10px;
+    padding: 5px;
+    float: left;
+    margin: auto;
+}

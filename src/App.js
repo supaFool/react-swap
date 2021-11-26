@@ -1,7 +1,8 @@
 import Header from './Header';
-import ProfileBox from './ProfileBox';
+import ProfileBox from './W3/ProfileBox';
+import Swap from "./W3/Swap";
 
-import './App.css';
+import './style/App.css';
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
         <div>
             <Header/>
             <span><ProfileBox/></span>
+            <Swap/>
 
         </div>
     );
