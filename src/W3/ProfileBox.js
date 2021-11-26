@@ -12,17 +12,18 @@ export default function ProfileBox() {
     const [test_text, setTestText] = useState("No Tests Running");
 
     function connect() {
-        // User is Logged in
+        // Login
         if (!isAuthenticated) {
             authenticate().then(() => {
                 setText("Logout");
             }).then(async () => {
                 let options = {chain: 'bsc'};
+                //TODO: This is not showing up on certain occasions. ie: Refresh after being logged in. prob something to do with async or await.
                 setTestText((await bal.account.getNativeBalance(options)).balance /
                     10 ** 18);
             });
         }
-        //User is logged out
+        //Logout
         else {
             logout().then(() => {
                 setText("Connect Wallet");
@@ -39,6 +40,7 @@ export default function ProfileBox() {
         return (
 
             <div className='profile-container'>
+                Logged in Profile
                 <p>Welcome, <b>{user.getUsername()}</b></p>
 
                 <div>
@@ -58,6 +60,7 @@ export default function ProfileBox() {
     } else {
         return (
             <div className='profile-container'>
+                Logged out Profile
                 <span><h4>Please connect wallet for best experience</h4> <button
                     onClick={connect}>{text}</button></span>
             </div>
