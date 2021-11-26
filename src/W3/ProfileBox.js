@@ -9,7 +9,8 @@ export default function ProfileBox() {
     const web3api = useMoralisWeb3Api();
 
     const [text, setText] = useState("Connect Wallet");
-    const [test_text, setTestText] = useState("No Tests Running");
+    const [test_text, setTestText] = useState(0);
+    const [isAuthed, setIsAuthed] = useState(false);
 
     function connect() {
         // Login
@@ -21,26 +22,30 @@ export default function ProfileBox() {
                 //TODO: This is not showing up on certain occasions. ie: Refresh after being logged in. prob something to do with async or await.
                 setTestText((await web3api.account.getNativeBalance(options)).balance /
                     10 ** 18);
+            }).then(() => {
+                setIsAuthed(true);
             });
+
         }
         //Logout
         else {
+            setIsAuthed(false)
             logout().then(() => {
                 setText("Connect Wallet");
-            });
-
+                setIsAuthed(false);
+            })
         }
     }
 
+
     // Logged in
-    if (isAuthenticated) {
+    if (isAuthed) {
         //TODO: When I add test_text.toFixed(6) to set 6 spot decimals.
         // It gets error on login. ref to className='bnb-balance-amount'>{test_text.toFixed(6)}</div></p>
 
         return (
 
             <div className='profile-container'>
-                <label>Logged in Profile</label>
                 <p>Welcome, <b>{user.getUsername()}</b></p>
 
                 <div>
@@ -50,7 +55,7 @@ export default function ProfileBox() {
                 <hr/>
                 <div className='bnb-balance-container'>
                     <p className='bnb-balance-label'>BnB Balance: <div
-                        className='bnb-balance-amount'>{test_text}</div></p>
+                        className='bnb-balance-amount'>{test_text.toFixed(6)}</div></p>
                 </div>
                 <hr/>
             </div>
@@ -61,8 +66,9 @@ export default function ProfileBox() {
         return (
             <div className='profile-container'>
                 <label>Logged Out Profile</label>
-                <span><h4>Please connect wallet for best experience</h4> <button
-                    onClick={connect}>{text}</button></span>
+                <div>Is Authed = {isAuthed}</div>
+                <span><h4>Please connect wallet for best experience</h4>
+                    <button onClick={connect}>{text}</button></span>
             </div>
         );
     }

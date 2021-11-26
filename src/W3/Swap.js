@@ -49,7 +49,8 @@ export default function Swap() {
     return (
         <div className='swap-container'>
             <ProfileBox/>
-            <p className='token-name'>session: {isAuthenticated ? user.getSessionToken() : "Not logged in"}</p>
+
+            <p className='cookie'>session: {isAuthenticated ? user.getSessionToken() : "Not logged in"}</p>
         </div>
     );
 }
