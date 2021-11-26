@@ -1,5 +1,4 @@
 import Header from './Header';
-import ProfileBox from './W3/ProfileBox';
 import Swap from "./W3/Swap";
 
 import './style/App.css';
@@ -9,10 +8,12 @@ function App() {
 
     return (
         <div>
-            <Header/>
-            <span><ProfileBox/></span>
-            <Swap/>
-
+            <div>
+                <Header/>
+            </div>
+            <div>
+                <Swap/>
+            </div>
         </div>
     );
 }

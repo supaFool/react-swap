@@ -1,11 +1,16 @@
 .swap-container {
+    display: block;
+    float: left;
+    margin: auto;
+    padding: 5px;
+    border-radius: 10px;
     background-color: darkorange;
     border-color: grey;
     border-style: solid;
     border-width: 1px;
-    block-size: auto;
-    border-radius: 10px;
-    padding: 5px;
-    float: left;
-    margin: auto;
+}
+
+.cookie {
+    font-size: x-small;
+    color: black;
 }
