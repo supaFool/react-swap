@@ -1,8 +1,9 @@
 import ProfileBox from "./ProfileBox";
 import '../style/swap.css'
-import {useState} from "react";
+import {useMoralis} from "react-moralis";
 
 export default function Swap() {
+    const {isAuthenticated, user} = useMoralis();
 
 
     //TODO:Swap Logic goes here.
@@ -20,14 +21,13 @@ export default function Swap() {
         slippage: 5
     }
 
-    const [toToken, setToToken] = useState(undefined);
-    const [fromToken, setFromToken] = useState(undefined);
+
 
     return (
         <div className='swap-container'>
-            <h5>Swap Alpha</h5>
+            <h5>Swap Container</h5>
+            <p>Logged in: {isAuthenticated ? user.getSessionToken() : "Not logged in"}</p>
             <ProfileBox/>
-
         </div>
     );
 }
