@@ -6,7 +6,7 @@ import '../style/profilebox.css'
 export default function ProfileBox() {
 
     const {authenticate, isAuthenticated, user, logout} = useMoralis();
-    const bal = useMoralisWeb3Api();
+    const web3api = useMoralisWeb3Api();
 
     const [text, setText] = useState("Connect Wallet");
     const [test_text, setTestText] = useState("No Tests Running");
@@ -19,7 +19,7 @@ export default function ProfileBox() {
             }).then(async () => {
                 let options = {chain: 'bsc'};
                 //TODO: This is not showing up on certain occasions. ie: Refresh after being logged in. prob something to do with async or await.
-                setTestText((await bal.account.getNativeBalance(options)).balance /
+                setTestText((await web3api.account.getNativeBalance(options)).balance /
                     10 ** 18);
             });
         }
@@ -40,7 +40,7 @@ export default function ProfileBox() {
         return (
 
             <div className='profile-container'>
-                Logged in Profile
+                <label>Logged in Profile</label>
                 <p>Welcome, <b>{user.getUsername()}</b></p>
 
                 <div>
@@ -60,7 +60,7 @@ export default function ProfileBox() {
     } else {
         return (
             <div className='profile-container'>
-                Logged out Profile
+                <label>Logged Out Profile</label>
                 <span><h4>Please connect wallet for best experience</h4> <button
                     onClick={connect}>{text}</button></span>
             </div>
