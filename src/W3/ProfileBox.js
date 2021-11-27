@@ -1,5 +1,6 @@
 import {useState} from "react";
-import {useMoralis, useMoralisWeb3Api} from "react-moralis";
+import TransactionLog from "./TransactionLog";
+import {useMoralis, useMoralisWeb3Api, useNativeTransactions} from "react-moralis";
 
 import '../style/profilebox.css'
 
@@ -7,22 +8,33 @@ export default function ProfileBox() {
 
     const {authenticate, isAuthenticated, user, logout} = useMoralis();
     const web3api = useMoralisWeb3Api();
+    let options = {chain: "bsc"};
+    const accountt = useNativeTransactions(options);
 
     const [text, setText] = useState("Connect Wallet");
     const [test_text, setTestText] = useState(0);
     const [isAuthed, setIsAuthed] = useState(false);
 
-    function connect() {
+    const [account, loadAccount] = useState([]);
+
+    function connect()
+    {
         // Login
-        if (!isAuthenticated) {
+        if (!isAuthed) {
+            //Authenticate user
             authenticate().then(() => {
+                //After that, set button to logout
                 setText("Logout");
             }).then(async () => {
-                let options = {chain: 'bsc'};
-                //TODO: This is not showing up on certain occasions. ie: Refresh after being logged in. prob something to do with async or await.
-                setTestText((await web3api.account.getNativeBalance(options)).balance /
+                //after that, wait on the response from balances
+                await setTestText((await web3api.account.getNativeBalance(options)).balance /
                     10 ** 18);
+            }).then(async () => {
+                //then load trx
+                await loadAccount(accountt);
+                console.log(JSON.stringify(account));
             }).then(() => {
+                //After all that is done, switch to isAuthed = true
                 setIsAuthed(true);
             });
 
@@ -37,16 +49,17 @@ export default function ProfileBox() {
         }
     }
 
-
     // Logged in
     if (isAuthed) {
-        //TODO: When I add test_text.toFixed(6) to set 6 spot decimals.
-        // It gets error on login. ref to className='bnb-balance-amount'>{test_text.toFixed(6)}</div></p>
+        //TODO: In order to get trx to show up, you have to restart server. idk...
 
         return (
 
             <div className='profile-container'>
+
                 <p>Welcome, <b>{user.getUsername()}</b></p>
+
+                <TransactionLog user={account}/>
 
                 <div>
                     <button onClick={connect}>Logout</button>
@@ -65,8 +78,6 @@ export default function ProfileBox() {
     } else {
         return (
             <div className='profile-container'>
-                <label>Logged Out Profile</label>
-                <div>Is Authed = {isAuthed}</div>
                 <span><h4>Please connect wallet for best experience</h4>
                     <button onClick={connect}>{text}</button></span>
             </div>

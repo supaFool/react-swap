@@ -1,3 +1,8 @@
+export default function Test() {
+    console.log("Testing");
+}
+
+
 // let oneInchSupportedTokens;
 //
 // //This is being used to hold the Web3API namespace
