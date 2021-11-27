@@ -1,6 +1,6 @@
 import ProfileBox from "./ProfileBox";
 import '../style/swap.css'
-import {useMoralis, useMoralisWeb3Api, useOneInchTokens} from "react-moralis";
+import {useMoralis, useMoralisWeb3Api} from "react-moralis";
 
 export default function Swap() {
     const {isAuthenticated, user} = useMoralis();
@@ -34,11 +34,12 @@ export default function Swap() {
         slippage: 5
     }
 
+    //Test();
 
-    const oneInch = useOneInchTokens();
+    //const oneInch = useOneInchTokens();
     //let result = ;
 
-    console.log(oneInch);
+    //console.log(oneInch);
 
     function listAvailableTokens() {
         //result holds the data returned by the 1inch plugin. Same as Token_obj, only the token vars are named differently.
