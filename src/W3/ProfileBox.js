@@ -59,7 +59,7 @@ export default function ProfileBox() {
 
             <div className='profile-container'>
 
-                <p>Welcome, <span className='username'>{user.getUsername()}</span></p>
+                <p>Welcome <span className='username'>{user.getUsername()}</span></p>
 
                 <div>
                     <button onClick={connect}>Logout</button>
