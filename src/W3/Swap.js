@@ -1,3 +1,7 @@
+/*
+ * Copyright supadev.com  (c) 2021.
+ */
+
 import ProfileBox from "./ProfileBox";
 import '../style/swap.css'
 import {useMoralis, useMoralisWeb3Api} from "react-moralis";
@@ -34,24 +38,11 @@ export default function Swap() {
         slippage: 5
     }
 
-    //Test();
-
-    //const oneInch = useOneInchTokens();
-    //let result = ;
-
-    //console.log(oneInch);
-
-    function listAvailableTokens() {
-        //result holds the data returned by the 1inch plugin. Same as Token_obj, only the token vars are named differently.
-        //refer to line '100' this logo property is named 'logoURI', compared to being named 'logo' in the WEB3 return (line: 60).
-
-    }
-
     return (
         <div className='swap-container'>
             <ProfileBox/>
 
-            <p className='cookie'>session: {isAuthenticated ? user.getSessionToken() : "Not logged in"}</p>
+            <p className='cookie'>session: {isAuthenticated ? user.getSessionToken() : "No cookies saved"}</p>
         </div>
     );
 }

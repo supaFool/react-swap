@@ -1,7 +1,11 @@
+/*
+ * Copyright supadev.com  (c) 2021.
+ */
+
 import './style/header.css';
 
-
-function Header() {
+function Header()
+{
     const data = {
         title: "Moon Swap",
         version: "0.2.0",
