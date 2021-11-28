@@ -3,7 +3,6 @@
  */
 
 import {useState} from "react";
-import TransactionLog from "./TransactionLog";
 import {useMoralis, useMoralisWeb3Api, useNativeTransactions} from "react-moralis";
 
 import '../style/profilebox.css'
@@ -62,8 +61,6 @@ export default function ProfileBox() {
             <div className='profile-container'>
 
                 <p>Welcome, <b>{user.getUsername()}</b></p>
-
-                <TransactionLog user={natTrx}/>
 
                 <div>
                     <button onClick={connect}>Logout</button>
