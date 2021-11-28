@@ -1,3 +1,7 @@
+/*
+ * Copyright supadev.com  (c) 2021.
+ */
+
 .profile-container {
     display: compact;
     background-color: dimgray;
@@ -12,6 +16,25 @@
 
 .token-name {
     color: black;
+}
+
+.testing-container {
+    background-color: black;
+    border-style: inset;
+    border-width: 2px;
+}
+
+.testing-p {
+    color: salmon;
+}
+
+.testing-comp {
+    color: yellow;
+    font-size: small;
+}
+
+.username {
+    color: greenyellow;
 }
 
 .bnb-balance-container {
@@ -38,6 +61,10 @@ body {
 p {
     color: #61dafb;
     font-size: small;
+}
+
+h5 {
+    color: #61dafb;
 }
 
 b {
