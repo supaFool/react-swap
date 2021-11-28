@@ -71,8 +71,8 @@ export default function ProfileBox() {
                 </div>
                 <hr/>
                 <div className='bnb-balance-container'>
-                    <p className='bnb-balance-label'>BnB Balance: <div
-                        className='bnb-balance-amount'>{test_text.toFixed(6)}</div></p>
+                    <p className='bnb-balance-label'>BnB Balance:
+                        className='bnb-balance-amount'>{test_text.toFixed(6)}</p>
                 </div>
                 <hr/>
             </div>
