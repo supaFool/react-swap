@@ -15,9 +15,9 @@ function Header()
     };
 
     return (
-        <div className={'header'}>
+        <div className='App-header'>
             Header Container
-            <h2>{data.title} TEST<sub>{data.version}</sub></h2>
+            <h3>{data.title} TEST<sub>{data.version}</sub></h3>
         </div>
     );
 }

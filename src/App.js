@@ -13,7 +13,7 @@ function App()
     //TODO:Put initialization here. I have it scattered about right now.
 
     return (
-        <div>
+        <div className='App'>
             <div>
                 <Header/>
             </div>
