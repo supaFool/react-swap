@@ -18,9 +18,9 @@ export default function ProfileBox() {
     // first click.
     const [isAuthed, setIsAuthed] = useState(isAuthenticated);
 
-    const [natTrx, loadTrx] = useState([]);
+    const [natTrx, loadTrx] = useState(undefined);
 
-    function connect()
+    function connect()//console.log(JSON.stringify(natTrx));
     {
         //TODO: Put some of this in different modules, It is not really reusable in the current state because we
         // get a whole box back in return when we log in.
@@ -38,9 +38,9 @@ export default function ProfileBox() {
             }).then(async () => {
                 //then load trx
                 await loadTrx(nativeTransactions);
-                console.log(JSON.stringify(natTrx));
             }).then(() => {
                 //After all that is done, switch to isAuthed = true
+
                 setIsAuthed(true);
             });
 
@@ -75,6 +75,14 @@ export default function ProfileBox() {
                         className='bnb-balance-amount'>{test_text.toFixed(6)}</span></p>
                 </div>
                 <hr/>
+
+                <div className='testing-container'>
+                    <h5>Testing vars:</h5>
+                    <p className='testing-p'>isAuthed current state: <span
+                        className='testing-comp'>{JSON.stringify(isAuthed)}</span></p>
+                    <p className='testing-p'>natTrx amount: <span
+                        className='testing-comp'>{JSON.stringify(natTrx)}</span></p>
+                </div>
             </div>
         );
 
@@ -85,6 +93,15 @@ export default function ProfileBox() {
             <div className='profile-container'>
                 <span><h4>Please connect wallet for best experience</h4>
                     <button onClick={connect}>{text}</button></span>
+                <hr/>
+                <div className='testing-container'>
+                    <h5>Testing vars:</h5>
+                    <p className='testing-p'>isAuthed current state: <span
+                        className='testing-comp'>{JSON.stringify(isAuthed)}</span></p>
+                    <p className='testing-p'>natTrx amount: <span
+                        className='testing-comp'>{JSON.stringify(natTrx)}</span></p>
+
+                </div>
             </div>
         );
     }

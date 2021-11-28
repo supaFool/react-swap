@@ -18,6 +18,21 @@
     color: black;
 }
 
+.testing-container {
+    background-color: black;
+    border-style: inset;
+    border-width: 2px;
+}
+
+.testing-p {
+    color: salmon;
+}
+
+.testing-comp {
+    color: yellow;
+    font-size: small;
+}
+
 .username {
     color: greenyellow;
 }
@@ -46,6 +61,10 @@ body {
 p {
     color: #61dafb;
     font-size: small;
+}
+
+h5 {
+    color: #61dafb;
 }
 
 b {
