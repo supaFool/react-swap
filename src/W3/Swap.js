@@ -3,6 +3,7 @@
  */
 
 import ProfileBox from "./ProfileBox";
+import NatTrx from "./Trx";
 import '../style/swap.css'
 import {useMoralis, useMoralisWeb3Api} from "react-moralis";
 
@@ -39,9 +40,16 @@ export default function Swap() {
     }
 
     return (
-        <div className='swap-container'>
-            <ProfileBox/>
+        <div>
+            <div className='profile-box'>
+                <ProfileBox/>
+            </div>
 
+            <hr/>
+
+            <div>
+                <NatTrx options={{chain: 'bsc'}}/>
+            </div>
             <p className='cookie'>session: {isAuthenticated ? user.getSessionToken() : "No cookies saved"}</p>
         </div>
     );

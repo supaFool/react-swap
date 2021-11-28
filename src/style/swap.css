@@ -1,3 +1,7 @@
+/*
+ * Copyright supadev.com  (c) 2021.
+ */
+
 .swap-container {
     display: block;
     float: left;
@@ -10,7 +14,19 @@
     border-width: 1px;
 }
 
+.center {
+    margin: auto;
+    width: 60%;
+    border: 5px solid #282c34;
+    padding: 10px;
+}
+
 .cookie {
     font-size: x-small;
     color: black;
+}
+
+.profile-box {
+    display: flex;
+    justify-content: center;
 }
