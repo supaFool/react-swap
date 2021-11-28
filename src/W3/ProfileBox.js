@@ -1,7 +1,6 @@
 /*
  * Copyright supadev.com  (c) 2021.
  */
-
 import {useState} from "react";
 import {useMoralis, useMoralisWeb3Api, useNativeTransactions} from "react-moralis";
 
@@ -60,7 +59,7 @@ export default function ProfileBox() {
 
             <div className='profile-container'>
 
-                <p>Welcome, <b>{user.getUsername()}</b></p>
+                <p>Welcome, <span className='username'>{user.getUsername()}</span></p>
 
                 <div>
                     <button onClick={connect}>Logout</button>

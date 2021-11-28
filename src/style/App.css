@@ -1,13 +1,13 @@
+/*
+ * Copyright supadev.com  (c) 2021.
+ */
+
 body {
     background-color: #61dafb;
 }
 
 .App {
     text-align: center;
-}
-
-.username {
-    color: blueviolet;
 }
 
 .App-logo {
