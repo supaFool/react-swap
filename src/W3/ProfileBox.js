@@ -1,3 +1,7 @@
+/*
+ * Copyright supadev.com  (c) 2021.
+ */
+
 import {useState} from "react";
 import TransactionLog from "./TransactionLog";
 import {useMoralis, useMoralisWeb3Api, useNativeTransactions} from "react-moralis";
@@ -9,13 +13,13 @@ export default function ProfileBox() {
     const {authenticate, isAuthenticated, user, logout} = useMoralis();
     const web3api = useMoralisWeb3Api();
     let options = {chain: "bsc"};
-    const accountt = useNativeTransactions(options);
+    const nativeTransactions = useNativeTransactions(options);
 
     const [text, setText] = useState("Connect Wallet");
     const [test_text, setTestText] = useState(0);
-    const [isAuthed, setIsAuthed] = useState(false);
+    const [isAuthed, setIsAuthed] = useState(isAuthenticated);
 
-    const [account, loadAccount] = useState([]);
+    const [natTrx, loadTrx] = useState([]);
 
     function connect()
     {
@@ -31,8 +35,8 @@ export default function ProfileBox() {
                     10 ** 18);
             }).then(async () => {
                 //then load trx
-                await loadAccount(accountt);
-                console.log(JSON.stringify(account));
+                await loadTrx(nativeTransactions);
+                console.log(JSON.stringify(natTrx));
             }).then(() => {
                 //After all that is done, switch to isAuthed = true
                 setIsAuthed(true);
@@ -51,7 +55,7 @@ export default function ProfileBox() {
 
     // Logged in
     if (isAuthed) {
-        //TODO: In order to get trx to show up, you have to restart server. idk...
+        //TODO: In order to get trx {account} to show up, you have to restart server. idk...
 
         return (
 
@@ -59,7 +63,7 @@ export default function ProfileBox() {
 
                 <p>Welcome, <b>{user.getUsername()}</b></p>
 
-                <TransactionLog user={account}/>
+                <TransactionLog user={natTrx}/>
 
                 <div>
                     <button onClick={connect}>Logout</button>
@@ -67,15 +71,16 @@ export default function ProfileBox() {
                 </div>
                 <hr/>
                 <div className='bnb-balance-container'>
-                    <p className='bnb-balance-label'>BnB Balance: <div
-                        className='bnb-balance-amount'>{test_text.toFixed(6)}</div></p>
+                    <p className='bnb-balance-label'>BnB Balance:
+                        className='bnb-balance-amount'>{test_text.toFixed(6)}</p>
                 </div>
                 <hr/>
             </div>
         );
 
         // Logged out
-    } else {
+    }
+    else {
         return (
             <div className='profile-container'>
                 <span><h4>Please connect wallet for best experience</h4>
