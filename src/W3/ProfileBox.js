@@ -15,6 +15,8 @@ export default function ProfileBox() {
 
     const [text, setText] = useState("Connect Wallet");
     const [test_text, setTestText] = useState(0);
+    //TODO: This is still wonky, Sometime you have to refresh to get button to show, Like it is not picking up the
+    // first click.
     const [isAuthed, setIsAuthed] = useState(isAuthenticated);
 
     const [natTrx, loadTrx] = useState([]);
