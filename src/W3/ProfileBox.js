@@ -3,7 +3,6 @@
  */
 import {useState} from "react";
 import {useMoralis, useMoralisWeb3Api, useNativeTransactions} from "react-moralis";
-
 import '../style/profilebox.css'
 
 export default function ProfileBox() {
@@ -23,6 +22,9 @@ export default function ProfileBox() {
 
     function connect()
     {
+        //TODO: Put some of this in different modules, It is not really reusable in the current state because we
+        // get a whole box back in return when we log in.
+
         // Login
         if (!isAuthed) {
             //Authenticate user
