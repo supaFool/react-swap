@@ -9,8 +9,8 @@ import './style/App.css';
 
 function App()
 {
-
     //TODO:Put initialization here. I have it scattered about right now.
+
 
     return (
         <div className='App'>
